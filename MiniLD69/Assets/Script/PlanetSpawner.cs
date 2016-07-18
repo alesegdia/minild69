@@ -12,8 +12,8 @@ public class PlanetSpawner : MonoBehaviour {
 
 	void SpawnPlanet( )
 	{
-		GameObject tr = GameObject.Instantiate(planetPrefab, Vector3.zero, Quaternion.identity) as GameObject;
-		RandomPlanetShape rps = tr.gameObject.GetComponent<RandomPlanetShape>();
+		GameObject go = GameObject.Instantiate(planetPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+		RandomPlanetShape rps = go.gameObject.GetComponent<RandomPlanetShape>();
 		rps.BuildPlanetGraphics (0);
 	}
 	
