@@ -3,15 +3,15 @@ using System.Collections;
 
 public class RandomPlanetShape : MonoBehaviour {
 
-	public MeshFilter mesh;
+	MeshRenderer mesh;
 	Texture2D texture;
 
 	// Use this for initialization
-	void Start () {
-		BuildPlanetGraphics (4);
+	void Awake () {
+		mesh = GetComponent<MeshRenderer> ();
 	}
 
-	void BuildPlanetGraphics( int seed )
+	public void BuildPlanetGraphics( int seed )
 	{
 		float[][] map = NoiseUtils.GeneratePerlinNoise (100, 100, 4, seed);
 		texture = new Texture2D (100, 100);
@@ -21,7 +21,7 @@ public class RandomPlanetShape : MonoBehaviour {
 			}
 		}
 		texture.Apply ();
-		mesh.GetComponent<MeshRenderer> ().material.SetTexture("_MainTex", texture);
+		mesh.material.SetTexture("_MainTex", texture);
 	}
 	
 	// Update is called once per frame
