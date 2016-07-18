@@ -8,11 +8,16 @@ public class RandomPlanetShape : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("meh");
+		BuildPlanetGraphics (4);
+	}
+
+	void BuildPlanetGraphics( int seed )
+	{
+		float[][] map = NoiseUtils.GeneratePerlinNoise (100, 100, 4, seed);
 		texture = new Texture2D (100, 100);
 		for (int i = 0; i < 100; i++) {
 			for (int j = 0; j < 100; j++) {
-				texture.SetPixel (i, j, Color.red);
+				texture.SetPixel (i, j, new Color(map[i][j], map[i][j], map[i][j]));
 			}
 		}
 		texture.Apply ();
