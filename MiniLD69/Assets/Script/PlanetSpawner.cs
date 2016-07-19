@@ -7,10 +7,10 @@ public class PlanetSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		SpawnPlanet ();
+		SpawnPlanet ( new PlanetSettings() );
 	}
 
-	void SpawnPlanet( )
+	void SpawnPlanet( PlanetSettings planet_settings )
 	{
 		GameObject go = GameObject.Instantiate(planetPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 		RandomPlanetShape rps = go.gameObject.GetComponent<RandomPlanetShape>();
