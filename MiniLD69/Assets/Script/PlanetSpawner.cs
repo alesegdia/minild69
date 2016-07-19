@@ -14,7 +14,7 @@ public class PlanetSpawner : MonoBehaviour {
 	{
 		GameObject go = GameObject.Instantiate(planetPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 		RandomPlanetShape rps = go.gameObject.GetComponent<RandomPlanetShape>();
-		rps.BuildPlanetGraphics (0);
+		rps.BuildPlanetTexture (0);
 	}
 	
 	// Update is called once per frame
