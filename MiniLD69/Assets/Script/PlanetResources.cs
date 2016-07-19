@@ -3,11 +3,11 @@ using System.Collections;
 
 public class PlanetResources : MonoBehaviour {
 
-	PlanetResourceInfo[] resources;
+	PlanetResourceProperties[] resources;
 
 	// Use this for initialization
 	void Start () {
-		resources = new PlanetResourceInfo[ResourceUtils.NumResourceTypes ()];
+		resources = new PlanetResourceProperties[ResourceUtils.NumResourceTypes ()];
 	}
 	
 	// Update is called once per frame
