@@ -13,11 +13,11 @@ PlanetXploit is an idle game focused on gathering resources with moderated user 
 
 ## Resource types
 
-* **[Froncetite]** Rare, gas. Only found in gas planets.
+* **[Froncetite]** - Rare, gas. Only found in gas planets.
   * Used to build **[froncetite]** and **[xargon]** gathering buildings
-* **[Sandetite]** Rare, solid. Only found in solid planets.
+* **[Sandetite]** - Rare, solid. Only found in solid planets.
   * Used to build **[sandetite]** and **[xargon]** gathering buildings
-* **[Xargon]** Common, liquid. Found everywhere.
+* **[Xargon]** - Common, liquid. Found everywhere.
   * Used to build **[froncetite]**, **[sandetite]** and **[xargon]** gathering buildings
 
 All planets have **[xargon]**, but only a few planets can have **[sandetite]** or **[froncetite]**.
@@ -33,8 +33,8 @@ Each planet can have one following states:
 Planet properties:
 
 * **[Base gathering rate]** for each resource kind.
-* **[Size]**
-* **[Temperature]**
+* **[Size]** - Only aesthetics
+* **[Temperature]** - Only aesthetics
 
 ## Storaging
 
@@ -54,8 +54,8 @@ Each planet has its own material storage. When the player is not present in a pl
 
 * In **[universe view]**
   * Click on a planet opens a contextual menu:
-    * **[travel]** Only active if the player has enough **[xargon]** to travel.
-    * **[visit]** Go to **[planet view]**.
+    * **[Travel]** - Only active if the player has enough **[xargon]** to travel.
+    * **[Visit]** - Go to **[planet view]**.
 
 ## Player mobility
 
