@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RandomPlanetShape : MonoBehaviour {
+public class PlanetShape : MonoBehaviour {
 
 	MeshRenderer meshRenderer;
 	Texture2D texture;

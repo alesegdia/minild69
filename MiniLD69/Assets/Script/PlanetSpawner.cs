@@ -13,7 +13,7 @@ public class PlanetSpawner : MonoBehaviour {
 	void SpawnPlanet( PlanetSettings planet_settings )
 	{
 		GameObject go = GameObject.Instantiate(planetPrefab, Vector3.zero, Quaternion.identity) as GameObject;
-		RandomPlanetShape rps = go.gameObject.GetComponent<RandomPlanetShape>();
+		PlanetShape rps = go.gameObject.GetComponent<PlanetShape>();
 		rps.BuildPlanetTexture (0);
 	}
 	
