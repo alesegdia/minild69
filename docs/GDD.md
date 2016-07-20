@@ -32,16 +32,12 @@ With a specific type of **[buildings]**, **[froncetite]** and **[sandetite]** ca
 
 ## Planets
 
-Each planet can have one following states:
-* Solid
-* Gas
-* Solid with some gas
-
 Planet properties:
 
 * **[Base gathering rate]** for each resource kind.
-* **[Size]** - Only aesthetics
-* **[Temperature]** - Only aesthetics
+* **[Temperature]** - Influences present resources.
+* **[State]** - Gas or solid. Influences present resources.
+* **[Size]** - Influences number of buildings?
 
 ## Storaging
 
