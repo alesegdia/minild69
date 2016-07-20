@@ -1,24 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlanetSpawner : MonoBehaviour {
+public class PlanetSpawner {
 
-	public GameObject planetPrefab;
+	GameObject planetPrefab;
 
-	// Use this for initialization
-	void Start () {
-		SpawnPlanet ( new PlanetSettings() );
+	public PlanetSpawner()
+	{
+		planetPrefab = (GameObject) Resources.Load ("Planet");
 	}
 
-	void SpawnPlanet( PlanetSettings planet_settings )
+	public GameObject SpawnPlanet( PlanetSettings planet_settings )
 	{
-		GameObject go = GameObject.Instantiate(planetPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+		GameObject go = GameObject.Instantiate(planetPrefab, planet_settings.position, Quaternion.identity) as GameObject;
 		PlanetShape rps = go.gameObject.GetComponent<PlanetShape>();
 		rps.BuildPlanetTexture (0);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		return go;
 	}
 }
