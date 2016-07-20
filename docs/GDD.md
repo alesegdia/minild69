@@ -66,3 +66,11 @@ Each planet has its own material storage. When the player is not present in a pl
 The player needs a certain amount of **[xargon]** to travel between planets. The traveling time and **[xargon]** needed depends on the distance. For the jam, this time will be reduced. If the player does not have any **[xargon]** available, then some resource converting will be needed. The only resource needed to build a converter is the resource that it will convert from to **[xargon]**, because otherwise the player could get stuck in a planet.
 
 **Possible upgrade:** require more **[xargon]** depending on how much resources the player have.
+
+
+## Buildings
+
+* **[Gatherer]**. 3 (by now) for each resource. Each one is much better than the previous one at gathering resources.
+* **[Container]**. To store resources in a planet. If containers are full, **[gatherers]** won't collect any material until the player has traveled to the planet and fetched the resources.
+* **[Converters]**. For non-**[xargon]** materials, to turn them into **[xargon]**.
+* Power plant?? maybe too much.
