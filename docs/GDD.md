@@ -62,6 +62,6 @@ Each planet has its own material storage. When the player is not present in a pl
 
 ## Player mobility
 
-The player starts in a planet, which will surely have **[xargon]** (because all planets have). The player needs a certain amount of **[xargon]** to travel between planets. The traveling time and **[xargon]** needed depends on the distance. For the jam, this time will be reduced.              
+The player needs a certain amount of **[xargon]** to travel between planets. The traveling time and **[xargon]** needed depends on the distance. For the jam, this time will be reduced. If the player does not have any **[xargon]** available, then some resource converting will be needed. The only resource needed to build a converter is the resource that it will convert from to **[xargon]**, because otherwise the player could get stuck in a planet.
 
 **Possible upgrade:** require more **[xargon]** depending on how much resources the player have.
