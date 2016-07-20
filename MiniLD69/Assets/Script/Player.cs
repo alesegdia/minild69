@@ -13,9 +13,9 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		int selected = Random.Range (0, universe.planets.Count - 1);
-		Planet p = universe.planets[selected].GetComponent<Planet>();
-		camController.GoToPlanet (p, ReachDelegate);
+		int selected = Random.Range (0, this.universe.planets.Count - 1);
+		Planet p = this.universe.planets[selected].GetComponent<Planet>();
+		this.camController.GoToPlanet (p, ReachDelegate);
 	}
 	
 	// Update is called once per frame

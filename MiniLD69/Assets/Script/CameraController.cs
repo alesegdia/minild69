@@ -3,22 +3,20 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour {
 
+	enum CamState {
+		Moving, Idle
+	};
+
+	public delegate void OnReachDelegate( Planet planet );
+
 	public Camera cam;
 	public UniverseGenerator universe;
 
 	Vector3 objective;
 	float t = 0;
-
-	enum CamState {
-		Moving, Idle
-	};
-
 	CamState state = CamState.Idle;
-
 	OnReachDelegate reachDelegate;
 	Planet planet;
-
-	public delegate void OnReachDelegate( Planet planet );
 
 	public void GoToPlanet( Planet planet, OnReachDelegate reach_delegate )
 	{
@@ -29,23 +27,19 @@ public class CameraController : MonoBehaviour {
 		this.reachDelegate = reach_delegate;
 	}
 
-	// Use this for initialization
-	void Start () {
-	}
-	
 	// Update is called once per frame
 	void Update () {
-		switch (state) {
+		switch (this.state) {
 		case CamState.Idle:
 			break;
 		case CamState.Moving:
-			if (cam.transform.position != objective) {
-				t += Time.deltaTime / 10.0f;
-				cam.transform.position = Vector3.Lerp (cam.transform.position, objective, t);
+			if (this.cam.transform.position != objective) {
+				this.t += Time.deltaTime / 10.0f;
+				this.cam.transform.position = Vector3.Lerp (this.cam.transform.position, this.objective, this.t);
 			} else {
-				t = 0;
-				state = CamState.Idle;
-				reachDelegate (planet);
+				this.t = 0;
+				this.state = CamState.Idle;
+				this.reachDelegate (planet);
 			}
 			break;
 		}
