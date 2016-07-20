@@ -10,14 +10,11 @@ public class UniverseGenerator : MonoBehaviour {
 	public List<GameObject> planets;
 
 	PlanetSpawner planetSpawner;
-	System.Random random;
 
 	// Use this for initialization
 	void Awake () {
 		planetSpawner = new PlanetSpawner ();
 		planets = new List<GameObject> ();
-
-		random = new System.Random ();
 
 		List<Vector3> positions = new List<Vector3> ();
 
