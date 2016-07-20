@@ -13,15 +13,22 @@ PlanetXploit is an idle game focused on gathering resources with moderated user 
 
 ## Resource types
 
-* **[Froncetite]** - Rare, gas. Only found in gas planets.
+Resources in planets are infinite. The only thing that changes is the rate at which the player gather them. The player can find the following resource types:
+
+* **[Froncetite]** - Rare, gas.
   * Used to build **[froncetite]** and **[xargon]** gathering buildings
-* **[Sandetite]** - Rare, solid. Only found in solid planets.
+* **[Sandetite]** - Rare, solid.
   * Used to build **[sandetite]** and **[xargon]** gathering buildings
-* **[Xargon]** - Common, liquid. Found everywhere.
+* **[Xargon]** - Common, liquid.
   * Used to build **[froncetite]**, **[sandetite]** and **[xargon]** gathering buildings
 
-All planets have **[xargon]**, but only a few planets can have **[sandetite]** or **[froncetite]**.
+The way resources can be found in planets follow the next diagram:
 
+![alt text](resource-diagram.png "Sample")
+
+As a bonus, gas-based planets could have an increased probability of generating bigger quantities of **[froncetite]**, and the same with solid-based planets and **[sandetite]**.
+
+With a specific type of **[buildings]**, **[froncetite]** and **[sandetite]** can be converted into **[xargon]**. Otherwise, the player could get stuck in a planet, because **[xargon]** is used as fuel to **[travel]** between planets.
 
 ## Planets
 
