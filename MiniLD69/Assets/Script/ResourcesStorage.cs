@@ -14,7 +14,7 @@ public class ResourcesStorage : MonoBehaviour {
 	public void addResourceQuantity( ResourceUtils.ResourceType resource_type, float quantity )
 	{
 		Assert.IsTrue (quantity >= 0);
-		storage [resource_type] += quantity;
+		storage [(int)resource_type] += quantity;
 	}
 
 }
