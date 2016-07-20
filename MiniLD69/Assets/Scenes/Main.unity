@@ -90,47 +90,47 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &586031014
+--- !u!1 &287985288
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 586031016}
-  - 114: {fileID: 586031015}
+  - 4: {fileID: 287985290}
+  - 114: {fileID: 287985289}
   m_Layer: 0
-  m_Name: PlanetSpawner
+  m_Name: CameraController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &586031015
+--- !u!114 &287985289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 586031014}
+  m_GameObject: {fileID: 287985288}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa2f48e19b2fe4cb98172fdb9ae57f32, type: 3}
+  m_Script: {fileID: 11500000, guid: 884d041c28fd348f3a7ca9a3ec8f6e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetPrefab: {fileID: 1000010043436736, guid: 75b756ff8f6784d2e851a528897d1525,
-    type: 2}
---- !u!4 &586031016
+  cam: {fileID: 1027856115}
+  universe: {fileID: 979389440}
+--- !u!4 &287985290
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 586031014}
+  m_GameObject: {fileID: 287985288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3780352, y: -0.14965892, z: -0.77409816}
+  m_LocalPosition: {x: -1.2879653, y: -12.33243, z: 16.659826}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &979389438
 GameObject:
@@ -140,6 +140,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 979389439}
+  - 114: {fileID: 979389440}
   m_Layer: 0
   m_Name: UniverseGenerator
   m_TagString: Untagged
@@ -160,6 +161,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &979389440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 979389438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f589fc62e67dc448baaf6e4c4f8f12c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfPlanets: 30
+  scale: 50
+  numberOfGenerationRetries: 0
+  planets: []
 --- !u!1 &1027856111
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,32 +262,4 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1983558251
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1983558252}
-  m_Layer: 0
-  m_Name: SolarSystemGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1983558252
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1983558251}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
