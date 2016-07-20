@@ -59,6 +59,7 @@ Each planet has its own material storage. When the player is not present in a pl
   * Click on a planet opens a contextual menu:
     * **[Travel]** - Only active if the player has enough **[xargon]** to travel.
     * **[Visit]** - Go to **[planet view]**.
+    * **[Info]** - Checks general information about the planet.
 
 ## Player mobility
 
