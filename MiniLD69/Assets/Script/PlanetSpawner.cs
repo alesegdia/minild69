@@ -15,6 +15,9 @@ public class PlanetSpawner {
 		GameObject go = GameObject.Instantiate(planetPrefab, planet_settings.position, Quaternion.identity) as GameObject;
 		PlanetShape rps = go.gameObject.GetComponent<PlanetShape>();
 		rps.BuildPlanetTexture (0);
+		go.transform.localScale = new Vector3(planet_settings.size, planet_settings.size, planet_settings.size);
+		Planet planet = go.gameObject.GetComponent<Planet> ();
+		planet.settings = planet_settings;
 		return go;
 	}
 }
