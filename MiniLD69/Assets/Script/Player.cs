@@ -3,13 +3,18 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	enum GameState {
+		StartSelectPlanet,
+		OnPlanetView
+	};
+
 	public UniverseGenerator universe;
 	public CameraController camController;
 
-	void ReachDelegate( Planet p )
-	{
-		Debug.Log ("ok im ere");
-	}
+	GameObject planetView;
+	GameObject startGameView;
+
+	GameState state;
 
 	void reachGlobalDelegate( )
 	{
@@ -18,21 +23,36 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		/*
-		int selected = Random.Range (0, this.universe.planets.Count - 1);
-		Planet p = this.universe.planets[selected].GetComponent<Planet>();
-		this.camController.GoToPlanet (p, ReachDelegate);
-		*/
+		state = GameState.StartSelectPlanet;
 		this.camController.GoToGlobal ( reachGlobalDelegate );
+		planetView = GameObject.Find ("/PlanetView");
+		startGameView = GameObject.Find ("/StartGameView");
+		planetView.SetActive (false);
 	}
 
-	public void FirstPlanetChosen( Planet p )
+	void ChooseStartingPlanet( Planet starting_planet )
 	{
-		this.camController.GoToPlanet (p, ReachDelegate);
+		state = GameState.OnPlanetView;
+		startGameView.SetActive (false);
+		CameraController.OnReachPlanetDelegate on_reach_planet_delegate = planet => {
+			planetView.SetActive (true);
+		};
+		this.camController.GoToPlanet (starting_planet, on_reach_planet_delegate);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void FixedUpdate () {
+		switch (state) {
+		case GameState.StartSelectPlanet:
+			if (true == Input.GetMouseButtonDown (0)) {
+				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+				RaycastHit hit;
+				if (true == Physics.Raycast (ray, out hit)) {
+					Planet starting_planet = hit.collider.gameObject.GetComponent<Planet> ();
+					ChooseStartingPlanet (starting_planet);
+				}
+			}
+			break;
+		}
 	}
+
 }
