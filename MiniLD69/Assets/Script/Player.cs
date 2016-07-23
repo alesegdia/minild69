@@ -25,8 +25,8 @@ public class Player : MonoBehaviour {
 	void Start () {
 		state = GameState.StartSelectPlanet;
 		this.camController.GoToGlobal ( reachGlobalDelegate );
-		planetView = GameObject.Find ("/PlanetView");
-		startGameView = GameObject.Find ("/StartGameView");
+		planetView = GameObject.Find ("/InGameViews/PlanetView");
+		startGameView = GameObject.Find ("/InGameViews/StartGameView");
 		planetView.SetActive (false);
 	}
 
