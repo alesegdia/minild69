@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class UniverseGenerator : MonoBehaviour {
 
 	public int numberOfPlanets = 10;
-	public float scale = 50.0f;
+	public float scale = 10.0f;
 	public int numberOfGenerationRetries = 0;
 	public List<GameObject> planets;
 
@@ -40,7 +40,7 @@ public class UniverseGenerator : MonoBehaviour {
 		foreach (Vector3 position in positions) {
 			PlanetSettings settings = new PlanetSettings ();
 			settings.position = position;
-			settings.size = 1 + UnityEngine.Random.value * 2;
+			settings.size = 2 + UnityEngine.Random.value * UnityEngine.Random.value * 8;
 			planets.Add(planetSpawner.SpawnPlanet (settings));
 		}
 	}
