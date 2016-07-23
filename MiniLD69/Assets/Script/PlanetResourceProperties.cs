@@ -6,5 +6,4 @@ using System.Collections;
 /// </summary>
 public class PlanetResourceProperties {
 	public float baseGatheringRate { get; set; }
-	public ResourceUtils.ResourceType resourceType { get; set; }
 }
