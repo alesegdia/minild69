@@ -33,14 +33,14 @@ public class CameraController : MonoBehaviour {
 		this.planet = planet;
 		this.state = CamState.MovingToPlanet;
 		this.objective = planet.transform.position;
-		this.objective.z = -2 - planet.settings.size;
+		this.objective.z = -2 - planet.settings.size * 2;
 		this.reachPlanetDelegate = reach_delegate;
 	}
 
 	public void GoToGlobal( OnReachGlobalDelegate reach_delegate )
 	{
 		this.state = CamState.MovingToGlobal;
-		this.objective = new Vector3 (0, 0, -190);
+		this.objective = new Vector3 (0, 0, -120);
 		this.reachGlobalDelegate = reach_delegate;
 	}
 
