@@ -21,6 +21,12 @@ public class Player : MonoBehaviour {
 		Debug.Log ("ok im in global");
 	}
 
+	public void GoToGlobalEventResponse()
+	{
+		planetView.SetActive (false);
+		camController.GoToGlobal (reachGlobalDelegate);
+	}
+
 	// Use this for initialization
 	void Start () {
 		state = GameState.StartSelectPlanet;
