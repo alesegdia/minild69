@@ -40,7 +40,7 @@ public class CameraController : MonoBehaviour {
 	public void GoToGlobal( OnReachGlobalDelegate reach_delegate )
 	{
 		this.state = CamState.MovingToGlobal;
-		this.objective = new Vector3 (0, 0, -120);
+		this.objective = new Vector3 (0, 0, -100);
 		this.reachGlobalDelegate = reach_delegate;
 	}
 
