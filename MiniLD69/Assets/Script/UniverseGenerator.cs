@@ -9,35 +9,11 @@ public class UniverseGenerator : MonoBehaviour {
 	public int numberOfGenerationRetries = 0;
 	public List<GameObject> planets;
 
-	PlanetSpawner planetSpawner;
-
-	PlanetResourceProperties[] GenerateResourceProperties()
-	{
-		PlanetResourceProperties[] resource_properties = new PlanetResourceProperties[ResourceUtils.NumResourceTypes()];
-		for (int i = 0; i < ResourceUtils.NumResourceTypes (); i++) {
-			resource_properties [i] = new PlanetResourceProperties ();
-			resource_properties [i].baseGatheringRate = Random.value;
-		}
-		return resource_properties;
-	}
-
-	float GenerateRandomSize()
-	{
-		return 2 + UnityEngine.Random.value * UnityEngine.Random.value * 8;
-	}
-
-	PlanetSettings GeneratePlanetSettingsAtPosition( Vector3 position )
-	{
-		PlanetSettings settings = new PlanetSettings ();
-		settings.position = position;
-		settings.size = GenerateRandomSize ();
-		settings.resourceProperties = GenerateResourceProperties ();
-		return settings;
-	}
+	GameObject planetPrefab;
 
 	// Use this for initialization
 	void Awake () {
-		planetSpawner = new PlanetSpawner ();
+		planetPrefab = (GameObject) Resources.Load ("Planet");
 		planets = new List<GameObject> ();
 
 		List<Vector3> positions = new List<Vector3> ();
@@ -62,8 +38,72 @@ public class UniverseGenerator : MonoBehaviour {
 			}
 		}
 		foreach (Vector3 position in positions) {
-			planets.Add(planetSpawner.SpawnPlanet (GeneratePlanetSettingsAtPosition (position)));
+			PlanetSettings settings = GeneratePlanetSettingsAtPosition (position);
+			planets.Add(SpawnPlanet (settings));
 		}
+	}
+
+	PlanetResourceProperties[] GenerateResourceProperties()
+	{
+		PlanetResourceProperties[] resource_properties = new PlanetResourceProperties[ResourceUtils.NumResourceTypes()];
+		for (int i = 0; i < ResourceUtils.NumResourceTypes (); i++) {
+			resource_properties [i] = new PlanetResourceProperties ();
+			resource_properties [i].baseGatheringRate = Random.value;
+		}
+		return resource_properties;
+	}
+
+	float GenerateRandomSize()
+	{
+		return 2 + UnityEngine.Random.value * UnityEngine.Random.value * 8;
+	}
+
+	void AppendRandomLetter( ref string str )
+	{
+		string letters = "qwertyuiopasdfghjklzxcvbnm";
+		str += letters [Random.Range (0, letters.Length)];
+	}
+
+	void AppendRandomNumber( ref string str )
+	{
+		string numbers = "1234567890";
+		str += numbers [Random.Range (0, numbers.Length)];
+	}
+
+	string GenerateName()
+	{
+		string name = "";
+		AppendRandomLetter (ref name);
+		AppendRandomLetter (ref name);
+		AppendRandomNumber (ref name);
+		name += "-";
+		AppendRandomLetter (ref name);
+		AppendRandomNumber (ref name);
+		name += "-";
+		AppendRandomLetter (ref name);
+		AppendRandomNumber (ref name);
+		AppendRandomLetter (ref name);
+		return name;
+	}
+
+	PlanetSettings GeneratePlanetSettingsAtPosition( Vector3 position )
+	{
+		PlanetSettings settings = new PlanetSettings ();
+		settings.position = position;
+		settings.size = GenerateRandomSize ();
+		settings.resourceProperties = GenerateResourceProperties ();
+		settings.name = GenerateName ();
+		return settings;
+	}
+
+	public GameObject SpawnPlanet( PlanetSettings planet_settings )
+	{
+		GameObject go = GameObject.Instantiate(planetPrefab, planet_settings.position, Quaternion.identity) as GameObject;
+		Planet planet = go.gameObject.GetComponent<Planet> ();
+		planet.BuildPlanetTexture ((int)(Random.value * 1000), planet_settings);
+		go.transform.localScale = new Vector3(planet_settings.size, planet_settings.size, planet_settings.size);
+		planet.settings = planet_settings;
+		return go;
 	}
 
 	bool positionAlreadyTaken(Vector3 position, List<Vector3> positions)

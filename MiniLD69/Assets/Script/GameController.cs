@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+
 using System.Collections;
 
-public class Player : MonoBehaviour {
+public class GameController : MonoBehaviour {
 
 	enum GameState {
 		StartSelectPlanet,
-		OnPlanetView
+		OnPlanetView,
+		OnUniverseView,
 	};
 
 	public UniverseGenerator universe;
@@ -25,6 +28,7 @@ public class Player : MonoBehaviour {
 	{
 		planetView.SetActive (false);
 		camController.GoToGlobal (reachGlobalDelegate);
+		state = GameState.OnUniverseView;
 	}
 
 	// Use this for initialization
@@ -33,6 +37,7 @@ public class Player : MonoBehaviour {
 		this.camController.GoToGlobal ( reachGlobalDelegate );
 		planetView = GameObject.Find ("/InGameViews/PlanetView");
 		startGameView = GameObject.Find ("/InGameViews/StartGameView");
+		planetView.transform.Find ("Buttons/BackIcon").GetComponent<Button> ().onClick.AddListener (GoToGlobalEventResponse);
 		planetView.SetActive (false);
 	}
 
@@ -42,6 +47,7 @@ public class Player : MonoBehaviour {
 		startGameView.SetActive (false);
 		CameraController.OnReachPlanetDelegate on_reach_planet_delegate = planet => {
 			planetView.SetActive (true);
+			planetView.transform.Find("PlanetName").GetComponent<Text>().text = planet.settings.name;
 		};
 		this.camController.GoToPlanet (starting_planet, on_reach_planet_delegate);
 	}
@@ -55,6 +61,18 @@ public class Player : MonoBehaviour {
 				if (true == Physics.Raycast (ray, out hit)) {
 					Planet starting_planet = hit.collider.gameObject.GetComponent<Planet> ();
 					ChooseStartingPlanet (starting_planet);
+				}
+			}
+			break;
+		case GameState.OnPlanetView:
+			if (true == Input.GetMouseButtonDown (0)) {
+				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+				RaycastHit hit;
+				if (true == Physics.Raycast (ray, out hit)) {
+					Planet p = hit.collider.gameObject.GetComponent<Planet> ();
+					if (p != null) {
+						p.GatherManualResources ();
+					}
 				}
 			}
 			break;
