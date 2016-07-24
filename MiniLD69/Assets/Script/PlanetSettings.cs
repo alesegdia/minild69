@@ -7,4 +7,5 @@ public class PlanetSettings {
 	public float temperature { get; set; }
 	public float size { get; set; }
 	public PlanetResourceProperties[] resourceProperties { get; set; }
+	public string name { get; set; }
 }

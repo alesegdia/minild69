@@ -11,6 +11,30 @@ public class UniverseGenerator : MonoBehaviour {
 
 	PlanetSpawner planetSpawner;
 
+	PlanetResourceProperties[] GenerateResourceProperties()
+	{
+		PlanetResourceProperties[] resource_properties = new PlanetResourceProperties[ResourceUtils.NumResourceTypes()];
+		for (int i = 0; i < ResourceUtils.NumResourceTypes (); i++) {
+			resource_properties [i] = new PlanetResourceProperties ();
+			resource_properties [i].baseGatheringRate = Random.value;
+		}
+		return resource_properties;
+	}
+
+	float GenerateRandomSize()
+	{
+		return 2 + UnityEngine.Random.value * UnityEngine.Random.value * 8;
+	}
+
+	PlanetSettings GeneratePlanetSettingsAtPosition( Vector3 position )
+	{
+		PlanetSettings settings = new PlanetSettings ();
+		settings.position = position;
+		settings.size = GenerateRandomSize ();
+		settings.resourceProperties = GenerateResourceProperties ();
+		return settings;
+	}
+
 	// Use this for initialization
 	void Awake () {
 		planetSpawner = new PlanetSpawner ();
@@ -38,10 +62,7 @@ public class UniverseGenerator : MonoBehaviour {
 			}
 		}
 		foreach (Vector3 position in positions) {
-			PlanetSettings settings = new PlanetSettings ();
-			settings.position = position;
-			settings.size = 2 + UnityEngine.Random.value * UnityEngine.Random.value * 8;
-			planets.Add(planetSpawner.SpawnPlanet (settings));
+			planets.Add(planetSpawner.SpawnPlanet (GeneratePlanetSettingsAtPosition (position)));
 		}
 	}
 
