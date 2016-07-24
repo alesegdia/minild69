@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour {
 	GameObject planetView;
 	GameObject startGameView;
 
+	Planet currentPlanet;
+
 	GameState state;
 
 	void reachGlobalDelegate( )
@@ -50,6 +52,7 @@ public class GameController : MonoBehaviour {
 			planetView.transform.Find("PlanetName").GetComponent<Text>().text = planet.settings.name;
 		};
 		this.camController.GoToPlanet (starting_planet, on_reach_planet_delegate);
+		currentPlanet = starting_planet;
 	}
 
 	void FixedUpdate () {
@@ -65,6 +68,7 @@ public class GameController : MonoBehaviour {
 			}
 			break;
 		case GameState.OnPlanetView:
+			UpdateResourceMarkers ();
 			if (true == Input.GetMouseButtonDown (0)) {
 				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 				RaycastHit hit;
@@ -77,6 +81,16 @@ public class GameController : MonoBehaviour {
 			}
 			break;
 		}
+	}
+
+	void UpdateResourceMarkers()
+	{
+		Text f_text = planetView.transform.Find ("PlanetResourceMarkers/FroncetiteQuantity_Text").GetComponent<Text> ();
+		Text s_text = planetView.transform.Find ("PlanetResourceMarkers/SandetiteQuantity_Text").GetComponent<Text> ();
+		Text x_text = planetView.transform.Find ("PlanetResourceMarkers/XargonQuantity_Text").GetComponent<Text> ();
+		f_text.text = ((int)Mathf.Round (currentPlanet.planetStorage.GetResourceQuantity (ResourceUtils.ResourceType.Froncetite))).ToString();
+		s_text.text = ((int)Mathf.Round (currentPlanet.planetStorage.GetResourceQuantity (ResourceUtils.ResourceType.Sandetite))).ToString();
+		x_text.text = ((int)Mathf.Round (currentPlanet.planetStorage.GetResourceQuantity (ResourceUtils.ResourceType.Xargon))).ToString();
 	}
 
 }
