@@ -1304,6 +1304,10 @@ Prefab:
       propertyPath: m_Name
       value: PlanetResourceMarkers
       objectReference: {fileID: 0}
+    - target: {fileID: 1000011750004754, guid: f275a2186b7aa4affadc3fd9291089ab, type: 2}
+      propertyPath: m_Name
+      value: SandetiteQuantity_Text
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f275a2186b7aa4affadc3fd9291089ab, type: 2}
   m_IsPrefabParent: 0
