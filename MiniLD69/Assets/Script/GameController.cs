@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour {
 	GameObject startGameView;
 
 	Planet currentPlanet;
+	ResourcesStorage playerResourcesStorage;
 
 	GameState state;
 
@@ -33,13 +34,20 @@ public class GameController : MonoBehaviour {
 		state = GameState.OnUniverseView;
 	}
 
+	public void TransferResourcesToPlayer()
+	{
+		currentPlanet.planetStorage.TransferTo (ref playerResourcesStorage);
+	}
+
 	// Use this for initialization
 	void Start () {
 		state = GameState.StartSelectPlanet;
 		this.camController.GoToGlobal ( reachGlobalDelegate );
+		playerResourcesStorage = new ResourcesStorage ();
 		planetView = GameObject.Find ("/InGameViews/PlanetView");
 		startGameView = GameObject.Find ("/InGameViews/StartGameView");
 		planetView.transform.Find ("Buttons/BackIcon").GetComponent<Button> ().onClick.AddListener (GoToGlobalEventResponse);
+		planetView.transform.Find ("TransferIcon").GetComponent<Button> ().onClick.AddListener (TransferResourcesToPlayer);
 		planetView.SetActive (false);
 	}
 
@@ -68,7 +76,8 @@ public class GameController : MonoBehaviour {
 			}
 			break;
 		case GameState.OnPlanetView:
-			UpdateResourceMarkers ();
+			UpdatePlanetResourceMarkers ();
+			UpdatePlayerResourceMarkers ();
 			if (true == Input.GetMouseButtonDown (0)) {
 				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 				RaycastHit hit;
@@ -83,14 +92,26 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	void UpdateResourceMarkers()
+	void UpdatePlanetResourceMarkers()
 	{
-		Text f_text = planetView.transform.Find ("PlanetResourceMarkers/FroncetiteQuantity_Text").GetComponent<Text> ();
-		Text s_text = planetView.transform.Find ("PlanetResourceMarkers/SandetiteQuantity_Text").GetComponent<Text> ();
-		Text x_text = planetView.transform.Find ("PlanetResourceMarkers/XargonQuantity_Text").GetComponent<Text> ();
-		f_text.text = ((int)Mathf.Round (currentPlanet.planetStorage.GetResourceQuantity (ResourceUtils.ResourceType.Froncetite))).ToString();
-		s_text.text = ((int)Mathf.Round (currentPlanet.planetStorage.GetResourceQuantity (ResourceUtils.ResourceType.Sandetite))).ToString();
-		x_text.text = ((int)Mathf.Round (currentPlanet.planetStorage.GetResourceQuantity (ResourceUtils.ResourceType.Xargon))).ToString();
+		GameObject planet_resource_markers = planetView.transform.Find ("PlanetResourceMarkers").gameObject;
+		UpdateResourceMarkers (planet_resource_markers, currentPlanet.planetStorage);
+	}
+
+	void UpdatePlayerResourceMarkers()
+	{
+		GameObject player_resource_markers = planetView.transform.Find ("PlayerResourceMarkers").gameObject;
+		UpdateResourceMarkers (player_resource_markers, playerResourcesStorage);
+	}
+
+	void UpdateResourceMarkers( GameObject resource_markers, ResourcesStorage storage )
+	{
+		Text f_text = resource_markers.transform.Find ("FroncetiteQuantity_Text").GetComponent<Text> ();
+		Text s_text = resource_markers.transform.Find ("SandetiteQuantity_Text").GetComponent<Text> ();
+		Text x_text = resource_markers.transform.Find ("XargonQuantity_Text").GetComponent<Text> ();
+		f_text.text = ((int)Mathf.Round (storage.GetResourceQuantity (ResourceUtils.ResourceType.Froncetite))).ToString();
+		s_text.text = ((int)Mathf.Round (storage.GetResourceQuantity (ResourceUtils.ResourceType.Sandetite))).ToString();
+		x_text.text = ((int)Mathf.Round (storage.GetResourceQuantity (ResourceUtils.ResourceType.Xargon))).ToString();
 	}
 
 }

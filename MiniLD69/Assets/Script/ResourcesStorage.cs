@@ -2,7 +2,7 @@
 using UnityEngine.Assertions;
 using System.Collections;
 
-public class ResourcesStorage : MonoBehaviour {
+public class ResourcesStorage {
 
 	private float[] storage;
 
@@ -20,5 +20,13 @@ public class ResourcesStorage : MonoBehaviour {
 	public float GetResourceQuantity( ResourceUtils.ResourceType resource_type )
 	{
 		return storage [(int)resource_type];
+	}
+
+	public void TransferTo( ref ResourcesStorage other_storage )
+	{
+		for (int i = 0; i < ResourceUtils.NumResourceTypes (); i++) {
+			other_storage.storage [i] += storage [i];
+			storage [i] = 0;
+		}
 	}
 }
