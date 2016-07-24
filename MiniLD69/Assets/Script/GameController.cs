@@ -55,7 +55,7 @@ public class GameController : MonoBehaviour {
 		currentPlanet = starting_planet;
 	}
 
-	void FixedUpdate () {
+	void Update () {
 		switch (state) {
 		case GameState.StartSelectPlanet:
 			if (true == Input.GetMouseButtonDown (0)) {
