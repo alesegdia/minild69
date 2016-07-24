@@ -45,7 +45,7 @@ public class UniverseGenerator : MonoBehaviour {
 
 	PlanetResourceProperties[] GenerateResourceProperties()
 	{
-		PlanetResourceProperties[] resource_properties = new PlanetResourceProperties[ResourceUtils.NumResourceTypes()];
+		PlanetResourceProperties[] resource_properties = new PlanetResourceProperties[ResourceUtils.NumResourceTypes ()];
 		for (int i = 0; i < ResourceUtils.NumResourceTypes (); i++) {
 			resource_properties [i] = new PlanetResourceProperties ();
 			resource_properties [i].baseGatheringRate = Random.value;
@@ -100,7 +100,7 @@ public class UniverseGenerator : MonoBehaviour {
 	{
 		GameObject go = GameObject.Instantiate(planetPrefab, planet_settings.position, Quaternion.identity) as GameObject;
 		Planet planet = go.gameObject.GetComponent<Planet> ();
-		planet.BuildPlanetTexture ((int)(Random.value * 1000), planet_settings);
+		planet.BuildGraphics ((int)(Random.value * 1000), planet_settings);
 		go.transform.localScale = new Vector3(planet_settings.size, planet_settings.size, planet_settings.size);
 		planet.settings = planet_settings;
 		return go;
