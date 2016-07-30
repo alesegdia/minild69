@@ -34,8 +34,13 @@ public class BuildingShopConfig : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		canvas = GameObject.Find ("/Canvas/Scroll View/Viewport/Content");
+		canvas = GameObject.Find ("Scroll View/Viewport/Content");
 		buildingShopEntryPrefab = Resources.Load ("ShopItemEntry") as GameObject;
+		LoadPlanetBuildings (null);
+	}
+
+	public void LoadPlanetBuildings( Planet planet )
+	{
 		int i = 0;
 		RectTransform rt = canvas.GetComponent<RectTransform> ();
 		rt.sizeDelta = new Vector2 (rt.sizeDelta.x, entries.Length * 310);
@@ -47,7 +52,7 @@ public class BuildingShopConfig : MonoBehaviour {
 			goEntry.SetCosts (entry.baseCosts);
 			goEntry.transform.SetParent (canvas.transform);
 			goEntry.transform.localScale = new Vector3 (1, 1, 1);
-			go.transform.localPosition = new Vector3 (0, -160 - 310 * i, 0);
+			go.transform.localPosition = new Vector3 (0, -160 - 250 * i, 0);
 			i++;
 		}
 	}
