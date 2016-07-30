@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour {
 
 	GameObject planetView;
 	GameObject startGameView;
+	GameObject shoppingView;
 
 	Planet currentPlanet;
 	ResourcesStorage playerResourcesStorage;
@@ -46,9 +47,15 @@ public class GameController : MonoBehaviour {
 		playerResourcesStorage = new ResourcesStorage ();
 		planetView = GameObject.Find ("/InGameViews/PlanetView");
 		startGameView = GameObject.Find ("/InGameViews/StartGameView");
+		shoppingView = GameObject.Find ("/InGameViews/ShoppingView");
+
+		// setup planet view buttons
 		planetView.transform.Find ("Buttons/BackIcon").GetComponent<Button> ().onClick.AddListener (GoToGlobalEventResponse);
 		planetView.transform.Find ("TransferIcon").GetComponent<Button> ().onClick.AddListener (TransferResourcesToPlayer);
+
+		// turn off all but start game view
 		planetView.SetActive (false);
+		//shoppingView.SetActive (true);
 	}
 
 	void ChooseStartingPlanet( Planet starting_planet )
