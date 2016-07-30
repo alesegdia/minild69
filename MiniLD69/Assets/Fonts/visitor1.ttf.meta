@@ -9,8 +9,7 @@ TrueTypeFontImporter:
   characterSpacing: 1
   characterPadding: 0
   includeFontData: 1
-  fontNames:
-  - Visitor TT1 BRK
+  fontNames: []
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 2
