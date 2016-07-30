@@ -4,6 +4,7 @@ using System.Collections;
 public class Planet : MonoBehaviour {
 
 	public PlanetSettings settings;
+	public PlanetBuildings buildings;
 	public ResourcesStorage planetStorage;
 
 	MeshRenderer meshRenderer;
