@@ -11,17 +11,40 @@ public class GameController : MonoBehaviour {
 		OnUniverseView,
 	};
 
+	GameState state;
+
 	public UniverseGenerator universe;
 	public CameraController camController;
 
 	GameObject planetView;
 	GameObject startGameView;
 	GameObject shoppingView;
+	GameObject bottomView;
 
 	Planet currentPlanet;
 	ResourcesStorage playerResourcesStorage;
 
-	GameState state;
+
+	// Use this for initialization
+	void Start () {
+		state = GameState.StartSelectPlanet;
+		this.camController.GoToGlobal ( reachGlobalDelegate );
+		playerResourcesStorage = new ResourcesStorage ();
+		planetView = GameObject.Find ("/InGameViews/PlanetView");
+		startGameView = GameObject.Find ("/InGameViews/StartGameView");
+		shoppingView = GameObject.Find ("/InGameViews/BuidlingShopView");
+		bottomView = GameObject.Find ("/InGameViews/BottomView");
+
+		// setup planet view buttons
+		bottomView.transform.Find ("Buttons/BackIcon").GetComponent<Button> ().onClick.AddListener (GoToGlobalEventResponse);
+		bottomView.transform.Find ("Buttons/BuildingsIcon").GetComponent<Button> ().onClick.AddListener (GoToBuildingsShop);
+		planetView.transform.Find ("TransferIcon").GetComponent<Button> ().onClick.AddListener (TransferResourcesToPlayer);
+
+		// turn off all but start game view
+		planetView.SetActive (false);
+		shoppingView.SetActive (false);
+		bottomView.SetActive (false);
+	}
 
 	void reachGlobalDelegate( )
 	{
@@ -35,38 +58,34 @@ public class GameController : MonoBehaviour {
 		state = GameState.OnUniverseView;
 	}
 
+	public void GoToBuildingsShop()
+	{
+		shoppingView.SetActive (true);
+		planetView.SetActive (false);
+	}
+
 	public void TransferResourcesToPlayer()
 	{
 		currentPlanet.planetStorage.TransferTo (ref playerResourcesStorage);
 	}
 
-	// Use this for initialization
-	void Start () {
-		state = GameState.StartSelectPlanet;
-		this.camController.GoToGlobal ( reachGlobalDelegate );
-		playerResourcesStorage = new ResourcesStorage ();
-		planetView = GameObject.Find ("/InGameViews/PlanetView");
-		startGameView = GameObject.Find ("/InGameViews/StartGameView");
-		shoppingView = GameObject.Find ("/InGameViews/ShoppingView");
+	void ReachPlanetDelegate( Planet planet )
+	{
+		planetView.SetActive (true);
+		planetView.transform.Find("PlanetName").GetComponent<Text>().text = planet.settings.name;
+	}
 
-		// setup planet view buttons
-		planetView.transform.Find ("Buttons/BackIcon").GetComponent<Button> ().onClick.AddListener (GoToGlobalEventResponse);
-		planetView.transform.Find ("TransferIcon").GetComponent<Button> ().onClick.AddListener (TransferResourcesToPlayer);
-
-		// turn off all but start game view
-		planetView.SetActive (false);
-		//shoppingView.SetActive (true);
+	void ReachFirstPlanetDelegate( Planet planet )
+	{
+		bottomView.SetActive (true);
+		ReachPlanetDelegate (planet);
 	}
 
 	void ChooseStartingPlanet( Planet starting_planet )
 	{
 		state = GameState.OnPlanetView;
 		startGameView.SetActive (false);
-		CameraController.OnReachPlanetDelegate on_reach_planet_delegate = planet => {
-			planetView.SetActive (true);
-			planetView.transform.Find("PlanetName").GetComponent<Text>().text = planet.settings.name;
-		};
-		this.camController.GoToPlanet (starting_planet, on_reach_planet_delegate);
+		this.camController.GoToPlanet (starting_planet, ReachFirstPlanetDelegate);
 		currentPlanet = starting_planet;
 	}
 
