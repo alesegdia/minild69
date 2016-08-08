@@ -74,3 +74,6 @@ The player needs a certain amount of **[xargon]** to travel between planets. The
 * **[Container]**. To store resources in a planet. If containers are full, **[gatherers]** won't collect any material until the player has traveled to the planet and fetched the resources.
 * **[Converters]**. For non-**[xargon]** materials, to turn them into **[xargon]**.
 * Power plant?? maybe too much.
+
+
+# Note: some features are optional
