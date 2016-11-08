@@ -43,7 +43,7 @@ public class BuildingShopConfig : MonoBehaviour {
 	{
 		int i = 0;
 		RectTransform rt = canvas.GetComponent<RectTransform> ();
-		rt.sizeDelta = new Vector2 (rt.sizeDelta.x, entries.Length * 310);
+		rt.sizeDelta = new Vector2 (rt.sizeDelta.x, entries.Length * 253);
 		foreach( BuildingShopEntryData entry in entries )
 		{
 			GameObject go = GameObject.Instantiate (buildingShopEntryPrefab);
