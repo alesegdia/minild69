@@ -52,7 +52,9 @@ public class BuildingShopConfig : MonoBehaviour {
 			goEntry.SetCosts (entry.baseCosts);
 			goEntry.transform.SetParent (canvas.transform);
 			goEntry.transform.localScale = new Vector3 (1, 1, 1);
-			go.transform.localPosition = new Vector3 (0, -160 - 250 * i, 0);
+			go.transform.localPosition = new Vector3 (100, -160 - 250 * i, 0);
+			//RectTransform mrt = go.GetComponent<RectTransform>();
+			//mrt.localPosition = new Vector3 (100, -160 - 250 * i, 0);
 			i++;
 		}
 	}
