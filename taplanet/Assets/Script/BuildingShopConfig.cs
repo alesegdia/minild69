@@ -39,6 +39,8 @@ public class BuildingShopConfig : MonoBehaviour {
 		LoadPlanetBuildings (null);
 	}
 
+	RectTransform rtt;
+
 	public void LoadPlanetBuildings( Planet planet )
 	{
 		int i = 0;
@@ -52,15 +54,17 @@ public class BuildingShopConfig : MonoBehaviour {
 			goEntry.SetCosts (entry.baseCosts);
 			goEntry.transform.SetParent (canvas.transform);
 			goEntry.transform.localScale = new Vector3 (1, 1, 1);
-			go.transform.localPosition = new Vector3 (100, -160 - 250 * i, 0);
-			//RectTransform mrt = go.GetComponent<RectTransform>();
-			//mrt.localPosition = new Vector3 (100, -160 - 250 * i, 0);
+			//go.transform.localPosition = new Vector3 (100, -160 - 250 * i, 0);
+			RectTransform mrt = go.GetComponent<RectTransform>();
+			mrt.anchorMin = new Vector2 (0.5f, 1);
+			mrt.anchorMax = new Vector2 (0.5f, 1);
+			mrt.localPosition = new Vector3 (98.57298f, -130 - 250 * i, 0);
+			rtt = rt;
 			i++;
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 }
