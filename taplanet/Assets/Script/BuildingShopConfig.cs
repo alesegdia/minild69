@@ -58,7 +58,7 @@ public class BuildingShopConfig : MonoBehaviour {
 			RectTransform mrt = go.GetComponent<RectTransform>();
 			mrt.anchorMin = new Vector2 (0.5f, 1);
 			mrt.anchorMax = new Vector2 (0.5f, 1);
-			mrt.localPosition = new Vector3 (98.57298f, -130 - 250 * i, 0);
+			mrt.localPosition = new Vector3 (110, -130 - 250 * i, 0);
 			rtt = rt;
 			i++;
 		}

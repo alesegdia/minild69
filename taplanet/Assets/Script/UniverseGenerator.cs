@@ -60,7 +60,7 @@ public class UniverseGenerator : MonoBehaviour {
 
 	void AppendRandomLetter( ref string str )
 	{
-		string letters = "qwertyuiopasdfghjklzxcvbnm";
+		string letters = "QWERTYUIOPASDFGHJKLZXCVBNM";
 		str += letters [Random.Range (0, letters.Length)];
 	}
 
