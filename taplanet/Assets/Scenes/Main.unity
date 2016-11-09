@@ -181,6 +181,21 @@ Prefab:
       propertyPath: m_Text
       value: 0 RPS
       objectReference: {fileID: 0}
+    - target: {fileID: 11488172, guid: 1339ec2182468403abc1d3429b5216f5, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 91eacbe761e0546fdb724b10b7919c44,
+        type: 3}
+    - target: {fileID: 11451632, guid: 1339ec2182468403abc1d3429b5216f5, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 91eacbe761e0546fdb724b10b7919c44,
+        type: 3}
+    - target: {fileID: 11450776, guid: 1339ec2182468403abc1d3429b5216f5, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 91eacbe761e0546fdb724b10b7919c44,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1339ec2182468403abc1d3429b5216f5, type: 2}
   m_IsPrefabParent: 0
@@ -580,6 +595,11 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: -233
       objectReference: {fileID: 0}
+    - target: {fileID: 11456432, guid: 544f440a8d9dc4b86bc5eb78cd4d99c1, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 91eacbe761e0546fdb724b10b7919c44,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 544f440a8d9dc4b86bc5eb78cd4d99c1, type: 2}
   m_IsPrefabParent: 0
@@ -680,7 +700,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b6c08be93137e4a9585bcf91648eb599, type: 3}
+    m_Font: {fileID: 12800000, guid: 91eacbe761e0546fdb724b10b7919c44, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
@@ -803,7 +823,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22404678, guid: 1339ec2182468403abc1d3429b5216f5, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 22404678, guid: 1339ec2182468403abc1d3429b5216f5, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -845,6 +865,21 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11488172, guid: 1339ec2182468403abc1d3429b5216f5, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 91eacbe761e0546fdb724b10b7919c44,
+        type: 3}
+    - target: {fileID: 11451632, guid: 1339ec2182468403abc1d3429b5216f5, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 91eacbe761e0546fdb724b10b7919c44,
+        type: 3}
+    - target: {fileID: 11450776, guid: 1339ec2182468403abc1d3429b5216f5, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 91eacbe761e0546fdb724b10b7919c44,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1339ec2182468403abc1d3429b5216f5, type: 2}
   m_IsPrefabParent: 0
@@ -1161,7 +1196,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b6c08be93137e4a9585bcf91648eb599, type: 3}
+    m_Font: {fileID: 12800000, guid: 91eacbe761e0546fdb724b10b7919c44, type: 3}
     m_FontSize: 90
     m_FontStyle: 0
     m_BestFit: 0
@@ -1582,6 +1617,24 @@ Prefab:
       propertyPath: m_Name
       value: PlayerResourceMarkers
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013894567104, guid: f275a2186b7aa4affadc3fd9291089ab,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 91eacbe761e0546fdb724b10b7919c44,
+        type: 3}
+    - target: {fileID: 114000013592117764, guid: f275a2186b7aa4affadc3fd9291089ab,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 91eacbe761e0546fdb724b10b7919c44,
+        type: 3}
+    - target: {fileID: 114000010642000662, guid: f275a2186b7aa4affadc3fd9291089ab,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 91eacbe761e0546fdb724b10b7919c44,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f275a2186b7aa4affadc3fd9291089ab, type: 2}
   m_IsPrefabParent: 0
@@ -1807,6 +1860,24 @@ Prefab:
       propertyPath: m_Name
       value: PlanetResourceMarkers
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013894567104, guid: f275a2186b7aa4affadc3fd9291089ab,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 91eacbe761e0546fdb724b10b7919c44,
+        type: 3}
+    - target: {fileID: 114000013592117764, guid: f275a2186b7aa4affadc3fd9291089ab,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 91eacbe761e0546fdb724b10b7919c44,
+        type: 3}
+    - target: {fileID: 114000010642000662, guid: f275a2186b7aa4affadc3fd9291089ab,
+        type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 91eacbe761e0546fdb724b10b7919c44,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f275a2186b7aa4affadc3fd9291089ab, type: 2}
   m_IsPrefabParent: 0
