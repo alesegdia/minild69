@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.313709"
-     inkscape:cx="78.474281"
-     inkscape:cy="1021.7411"
+     inkscape:zoom="8"
+     inkscape:cx="-12.081705"
+     inkscape:cy="1094.8265"
      inkscape:document-units="px"
      inkscape:current-layer="svg2"
      showgrid="true"
@@ -96,22 +96,22 @@
      id="path4175"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="ccccc"
-     inkscape:export-xdpi="508"
-     inkscape:export-ydpi="508" />
+     inkscape:export-xdpi="2000"
+     inkscape:export-ydpi="2000" />
   <path
      style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;marker-end:"
      d="m 52,-518 4,0 2,-2 0,-2 -2,-2 -4,0"
      id="path4179"
      inkscape:connector-curvature="0"
-     inkscape:export-xdpi="508"
-     inkscape:export-ydpi="508" />
+     inkscape:export-xdpi="2000"
+     inkscape:export-ydpi="2000" />
   <path
      style="fill:#ffffff;fill-rule:evenodd;stroke:#ffffff;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:1"
      d="m 50,-517 2,-2 0,2 -2,0"
      id="path4511"
      inkscape:connector-curvature="0"
-     inkscape:export-xdpi="508"
-     inkscape:export-ydpi="508" />
+     inkscape:export-xdpi="2000"
+     inkscape:export-ydpi="2000" />
   <path
      style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
      d="m 74,-518 -11,0 0,-9 4,3 0,-3 4,3 0,-3 c 2.666667,0 0.333333,0 3,0 z"
@@ -165,6 +165,53 @@
      d="m 116,-523 2.18804,-0.9779 M 112,-523 l -2,-1 m 4,-4 0,2 m -2,3 2,-3 2,3 -2,1 z m 5.18804,-3.9779 1,5 L 114,-520 l -4,-2 1,-5 3,-1 z"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cccccccccccscccccs"
+     inkscape:export-xdpi="2000"
+     inkscape:export-ydpi="2000" />
+  <path
+     style="fill:#ccff00;fill-rule:evenodd;stroke:#ccff00;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 56,-580 -2,2 0,2 -1,1 0,1 1,1 1,0 1,0 1,0 2,0 1,-1 0,-2 -1,-1 0,-1 -2,-2 z"
+     id="path4670"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccccccccccccccc"
+     inkscape:export-xdpi="2000"
+     inkscape:export-ydpi="2000" />
+  <path
+     style="fill:#55ddff;fill-rule:evenodd;stroke:#55ddff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+     d="m 66,-585 -2,2 0,2 -1,1 0,1 1,1 1,0 1,0 1,0 2,0 1,-1 0,-2 -1,-1 0,-1 -2,-2 z"
+     id="path4670-9"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccccccccccccccc"
+     inkscape:export-xdpi="2000"
+     inkscape:export-ydpi="2000" />
+  <path
+     style="fill:#ff0066;fill-rule:evenodd;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+     d="m 76,-578 -2,2 0,2 -1,1 0,1 1,1 1,0 1,0 1,0 2,0 1,-1 0,-2 -1,-1 0,-1 -2,-2 z"
+     id="path4670-4"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccccccccccccccc"
+     inkscape:export-xdpi="2000"
+     inkscape:export-ydpi="2000" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 12,-592 8,4 8,-4 -8,-2 z"
+     id="path4726"
+     inkscape:connector-curvature="0"
+     inkscape:export-xdpi="2000"
+     inkscape:export-ydpi="2000" />
+  <path
+     style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 20,-591 0,0 c 3,0 4.588157,-1.9636 6,-3 l -4,-1 c 0,0 0,-2 -2,-2 -2,0 -2,2 -2,2 l -4,1 c 0,0 3,3 6,3 z"
+     id="path4730"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccsccc"
+     inkscape:export-xdpi="2000"
+     inkscape:export-ydpi="2000" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 15,-617 3,6 -3,-2 3,6 -4,-2 6,9 6,-9 -4,2 3,-6 -3,2 3,-6"
+     id="path4738"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccccccccc"
      inkscape:export-xdpi="2000"
      inkscape:export-ydpi="2000" />
 </svg>
