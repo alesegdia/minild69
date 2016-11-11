@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerStats : MonoBehaviour {
 
-	ResourcesStorage resourcesStorage;
+	public ResourcesStorage resourcesStorage;
 
 	void Awake() {
 		resourcesStorage = new ResourcesStorage();

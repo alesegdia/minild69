@@ -22,14 +22,13 @@ public class GameController : MonoBehaviour {
 	GameObject bottomView;
 
 	Planet currentPlanet;
-	ResourcesStorage playerResourcesStorage;
-
+	PlayerStats playerStats;
 
 	// Use this for initialization
 	void Start () {
 		state = GameState.StartSelectPlanet;
 		this.camController.GoToGlobal ( reachGlobalDelegate );
-		playerResourcesStorage = new ResourcesStorage ();
+		playerStats = new PlayerStats ();
 		planetView = GameObject.Find ("/InGameViews/PlanetView");
 		startGameView = GameObject.Find ("/InGameViews/StartGameView");
 		shoppingView = GameObject.Find ("/InGameViews/BuidlingShopView");
@@ -68,7 +67,7 @@ public class GameController : MonoBehaviour {
 
 	public void TransferResourcesToPlayer()
 	{
-		currentPlanet.planetStorage.TransferTo (ref playerResourcesStorage);
+		currentPlanet.planetStorage.TransferTo (ref playerStats.resourcesStorage);
 	}
 
 	public void GatherResourcesFromCurrentPlanet()
@@ -125,7 +124,7 @@ public class GameController : MonoBehaviour {
 	void UpdatePlayerResourceMarkers()
 	{
 		GameObject player_resource_markers = planetView.transform.Find ("PlayerResourceMarkers").gameObject;
-		UpdateResourceMarkers (player_resource_markers, playerResourcesStorage);
+		UpdateResourceMarkers (player_resource_markers, playerStats.resourcesStorage);
 	}
 
 	void UpdateResourceMarkers( GameObject resource_markers, ResourcesStorage storage )
