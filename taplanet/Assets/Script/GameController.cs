@@ -40,6 +40,8 @@ public class GameController : MonoBehaviour {
 		bottomView.transform.Find ("Buttons/BuildingsIcon").GetComponent<Button> ().onClick.AddListener (GoToBuildingsShop);
 		planetView.transform.Find ("TransferIcon").GetComponent<Button> ().onClick.AddListener (TransferResourcesToPlayer);
 
+		planetView.transform.Find ("InvisibleGatherIcon").GetComponent<Button> ().onClick.AddListener (GatherResourcesFromCurrentPlanet);
+
 		// turn off all but start game view
 		planetView.SetActive (false);
 		shoppingView.SetActive (false);
@@ -67,6 +69,12 @@ public class GameController : MonoBehaviour {
 	public void TransferResourcesToPlayer()
 	{
 		currentPlanet.planetStorage.TransferTo (ref playerResourcesStorage);
+	}
+
+	public void GatherResourcesFromCurrentPlanet()
+	{
+		Debug.Assert (state == GameState.OnPlanetView);
+		currentPlanet.GatherManualResources ();
 	}
 
 	void ReachPlanetDelegate( Planet planet )
@@ -104,16 +112,6 @@ public class GameController : MonoBehaviour {
 		case GameState.OnPlanetView:
 			UpdatePlanetResourceMarkers ();
 			UpdatePlayerResourceMarkers ();
-			if (true == Input.GetMouseButtonDown (0)) {
-				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-				RaycastHit hit;
-				if (true == Physics.Raycast (ray, out hit)) {
-					Planet p = hit.collider.gameObject.GetComponent<Planet> ();
-					if (p != null) {
-						p.GatherManualResources ();
-					}
-				}
-			}
 			break;
 		}
 	}
