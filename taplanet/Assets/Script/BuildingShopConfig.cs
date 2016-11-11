@@ -39,8 +39,6 @@ public class BuildingShopConfig : MonoBehaviour {
 		LoadPlanetBuildings (null);
 	}
 
-	RectTransform rtt;
-
 	public void LoadPlanetBuildings( Planet planet )
 	{
 		int i = 0;
@@ -59,7 +57,6 @@ public class BuildingShopConfig : MonoBehaviour {
 			mrt.anchorMin = new Vector2 (0.5f, 1);
 			mrt.anchorMax = new Vector2 (0.5f, 1);
 			mrt.localPosition = new Vector3 (110, -130 - 250 * i, 0);
-			rtt = rt;
 			i++;
 		}
 	}

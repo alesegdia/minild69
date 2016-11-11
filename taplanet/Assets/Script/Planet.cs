@@ -15,9 +15,6 @@ public class Planet : MonoBehaviour {
 	void Awake () {
 		planetStorage = new ResourcesStorage ();
 		meshRenderer = GetComponent<MeshRenderer> ();
-		texture = new Texture2D (textureSize, textureSize);
-		texture.filterMode = FilterMode.Point;
-		meshRenderer.material.SetTexture("_MainTex", texture);
 	}
 	
 	// Update is called once per frame
@@ -34,6 +31,10 @@ public class Planet : MonoBehaviour {
 
 	public void BuildGraphics( int seed, PlanetSettings settings )
 	{
+		texture = new Texture2D (textureSize, textureSize);
+		texture.filterMode = FilterMode.Point;
+		meshRenderer.material.SetTexture("_MainTex", texture);
+
 		float[][] map = NoiseUtils.GeneratePerlinNoise (textureSize, textureSize, 6, seed);
 		MapUtils.CopyMatrixToTexture (map, texture);
 		float r, g, b;
