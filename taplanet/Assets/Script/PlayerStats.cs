@@ -1,11 +1,10 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 
-public class PlayerStats : MonoBehaviour {
+public class PlayerStats {
 
 	public ResourcesStorage resourcesStorage;
 
-	void Awake() {
+	public PlayerStats() {
 		resourcesStorage = new ResourcesStorage();
 	}
 
