@@ -43,12 +43,11 @@ public class UniverseGenerator : MonoBehaviour {
 		}
 	}
 
-	PlanetResourceProperties[] GenerateResourceProperties()
+	float[] GenerateResourceProperties()
 	{
-		PlanetResourceProperties[] resource_properties = new PlanetResourceProperties[ResourceUtils.NumResourceTypes ()];
+		float[] resource_properties = new float[ResourceUtils.NumResourceTypes ()];
 		for (int i = 0; i < ResourceUtils.NumResourceTypes (); i++) {
-			resource_properties [i] = new PlanetResourceProperties ();
-			resource_properties [i].baseGatheringRate = Random.value;
+			resource_properties [i] = Random.value;
 		}
 		return resource_properties;
 	}
@@ -91,7 +90,7 @@ public class UniverseGenerator : MonoBehaviour {
 		PlanetSettings settings = new PlanetSettings ();
 		settings.position = position;
 		settings.size = GenerateRandomSize ();
-		settings.resourceProperties = GenerateResourceProperties ();
+		settings.resourceGatheringRate = GenerateResourceProperties ();
 		settings.name = GenerateName ();
 		return settings;
 	}

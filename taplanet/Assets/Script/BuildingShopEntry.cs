@@ -18,7 +18,7 @@ public class BuildingShopEntry : MonoBehaviour {
 		unitsOwnedText = transform.Find ("UnitsOwned_Text").gameObject.GetComponent<Text> ();
 	}
 
-	public void SetCosts(BaseCosts costs) {
+	public void SetCosts(BuildingCosts costs) {
 		froncetiteCostText.text = costs.froncetiteCost.ToString();
 		sandetiteCostText.text = costs.sandetiteCost.ToString();
 		xargonCostText.text = costs.xargonCost.ToString();

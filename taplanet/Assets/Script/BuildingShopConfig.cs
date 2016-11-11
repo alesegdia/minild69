@@ -2,7 +2,7 @@
 using System.Collections;
 
 [System.Serializable]
-public struct BaseCosts {
+public struct BuildingCosts {
 	public int froncetiteCost;
 	public int sandetiteCost;
 	public int xargonCost;
@@ -14,7 +14,7 @@ public struct BuildingShopEntryData {
 
 	public int ID;
 	public string name;
-	public BaseCosts baseCosts;
+	public BuildingCosts baseCosts;
 
 	[HeaderAttribute("Player Info")]
 	public int currentUnitsInPlanet;
