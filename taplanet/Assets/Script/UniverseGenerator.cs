@@ -57,45 +57,17 @@ public class UniverseGenerator : MonoBehaviour {
 		return 2 + UnityEngine.Random.value * UnityEngine.Random.value * 8;
 	}
 
-	void AppendRandomLetter( ref string str )
-	{
-		string letters = "QWERTYUIOPASDFGHJKLZXCVBNM";
-		str += letters [Random.Range (0, letters.Length)];
-	}
-
-	void AppendRandomNumber( ref string str )
-	{
-		string numbers = "1234567890";
-		str += numbers [Random.Range (0, numbers.Length)];
-	}
-
-	string GenerateName()
-	{
-		string name = "";
-		AppendRandomLetter (ref name);
-		AppendRandomLetter (ref name);
-		AppendRandomNumber (ref name);
-		name += "-";
-		AppendRandomLetter (ref name);
-		AppendRandomNumber (ref name);
-		name += "-";
-		AppendRandomLetter (ref name);
-		AppendRandomNumber (ref name);
-		AppendRandomLetter (ref name);
-		return name;
-	}
-
 	PlanetSettings GeneratePlanetSettingsAtPosition( Vector3 position )
 	{
 		PlanetSettings settings = new PlanetSettings ();
 		settings.position = position;
 		settings.size = GenerateRandomSize ();
 		settings.resourceGatheringRate = GenerateResourceProperties ();
-		settings.name = GenerateName ();
+		settings.name = PlanetNameGenerator.GenerateName ();
 		return settings;
 	}
 
-	public GameObject SpawnPlanet( PlanetSettings planet_settings )
+	GameObject SpawnPlanet( PlanetSettings planet_settings )
 	{
 		GameObject go = GameObject.Instantiate(planetPrefab, planet_settings.position, Quaternion.identity) as GameObject;
 		Planet planet = go.gameObject.GetComponent<Planet> ();
