@@ -1,20 +1,30 @@
-# PlanetXploit's Design Doc
+# Taplanet Design Doc
 
 ## Overview
 
-PlanetXploit is an idle game focused on gathering resources with moderated user interaction.
+Taplanet is an idle game focused on gathering resources with moderated user interaction.
 
 ## Views
 
 * **[Universe view]**. An icon will be shown at the planet where the player currently is.
 * **[Planet view]**. Current visited planet view.
-* **[Buildings view]**. Buildings present in current planet. The player can check how much **[RPS]** a specific building type is providing, for each unit and the whole pack of bought buildings of that type. 
+* **[Buildings view]**. Buildings present in current planet. The player can check how much **[RPS]** a specific building type is providing, for each unit and the whole pack of bought buildings of that type.
 * **[Research view]**. The player can **[research]** tech to discover and upgrade **[buildings]** among other upgrades like reducing **[travel]** cost in **[xargon]**.
 * **[Stats view]**. The player can view its stats.
 
-## Resource types
+## Planets and resources
 
-Resources in planets are infinite. The only thing that changes is the rate at which the player gather them. The player can find the following resource types:
+Planet properties:
+
+* **[Base gathering rate]** for each resource kind.
+* **[Temperature]** - Influences present resources.
+* **[State]** - Gas or solid. Influences present resources.
+* **[Size]** - Influences number of buildings?
+
+
+Resources in planets are infinite. The only thing that changes is the rate at which the player gather them. Special planets can be generated,
+
+The player can find the following resource types in planets:
 
 * **[Froncetite]** - Rare, gas.
   * Used to build **[froncetite]** and **[xargon]** gathering buildings
@@ -27,18 +37,23 @@ The way resources can be found in planets follow the next diagram:
 
 ![alt text](resource-diagram.png "Sample")
 
-As a bonus, gas-based planets could have an increased probability of generating bigger quantities of **[froncetite]**, and the same with solid-based planets and **[sandetite]**.
+Planet colors are #FF0066 for hot planets and #55DDFF for cold planets. Other planets will have colors lerped from one to the other.
+
+There will be special coloured planets which will contain a limited but quickly gathered amount of resources. These special colors will be:
+
+| Color | resources | composition |
+|-------|-----------|-------------|
+| Cyan (#00FFFF) | **[xargon]**, **[sandetite]** | solid/liquid |
+| Yellow (#FFFF00) | **[xargon]**, **[froncetite]** | gas/liquid |
+| Magenta (#FF00FF) | **[sandetite]**, **[froncetite]** | gas/solid |
+| Red (#FF0000) | **[xargon]**, **[froncetite]** | gas |
+| Green (#00FF00) | **[xargon]**, **[froncetite]** | liquid |
+| Blue (#0000FF) | **[xargon]**, **[froncetite]** | solid |
+
+
+As a bonus, gas-based planets could have an increased probability of generating extremely bigger quantities of **[froncetite]**, and the same with solid-based planets and **[sandetite]**.
 
 With a specific type of **[buildings]**, **[froncetite]** and **[sandetite]** can be converted into **[xargon]**. Otherwise, the player could get stuck in a planet, because **[xargon]** is used as fuel to **[travel]** between planets.
-
-## Planets
-
-Planet properties:
-
-* **[Base gathering rate]** for each resource kind.
-* **[Temperature]** - Influences present resources.
-* **[State]** - Gas or solid. Influences present resources.
-* **[Size]** - Influences number of buildings?
 
 ## Storaging
 
@@ -66,7 +81,7 @@ Each planet has its own material storage. When the player is not present in a pl
 
 The player needs a certain amount of **[xargon]** to travel between planets. The traveling time and **[xargon]** needed depends on the distance. For the jam, this time will be reduced. If the player does not have any **[xargon]** available, then some resource converting will be needed. The only resource needed to build a converter is the resource that it will convert from to **[xargon]**, because otherwise the player could get stuck in a planet.
 
-**Possible upgrade:** require more **[xargon]** depending on how much resources the player have.
+**Possible upgrade:** require more **[xargon]** depending on how much resources the player carries.
 
 
 ## Buildings
