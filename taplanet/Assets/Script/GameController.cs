@@ -117,24 +117,25 @@ public class GameController : MonoBehaviour {
 
 	void UpdatePlanetResourceMarkers()
 	{
-		GameObject planet_resource_markers = planetView.transform.Find ("PlanetResourceMarkers").gameObject;
-		UpdateResourceMarkers (planet_resource_markers, currentPlanet.planetStorage);
+		Text f_text = planetView.transform.Find ("PlanetResourceMarkers/FroncetiteMarker/QuantityText").GetComponent<Text> ();
+		Text s_text = planetView.transform.Find ("PlanetResourceMarkers/SandetiteMarker/QuantityText").GetComponent<Text> ();
+		Text x_text = planetView.transform.Find ("PlanetResourceMarkers/XargonMarker/QuantityText").GetComponent<Text> ();
+		f_text.text = ((int)Mathf.Round (currentPlanet.planetStorage.GetResourceQuantity (ResourceUtils.ResourceType.Froncetite))).ToString();
+		s_text.text = ((int)Mathf.Round (currentPlanet.planetStorage.GetResourceQuantity (ResourceUtils.ResourceType.Sandetite))).ToString();
+		x_text.text = ((int)Mathf.Round (currentPlanet.planetStorage.GetResourceQuantity (ResourceUtils.ResourceType.Xargon))).ToString();
 	}
 
 	void UpdatePlayerResourceMarkers()
 	{
 		GameObject player_resource_markers = planetView.transform.Find ("PlayerResourceMarkers").gameObject;
-		UpdateResourceMarkers (player_resource_markers, playerStats.resourcesStorage);
-	}
-
-	void UpdateResourceMarkers( GameObject resource_markers, ResourcesStorage storage )
-	{
-		Text f_text = resource_markers.transform.Find ("FroncetiteQuantity_Text").GetComponent<Text> ();
-		Text s_text = resource_markers.transform.Find ("SandetiteQuantity_Text").GetComponent<Text> ();
-		Text x_text = resource_markers.transform.Find ("XargonQuantity_Text").GetComponent<Text> ();
+		ResourcesStorage storage = playerStats.resourcesStorage;
+		Text f_text = player_resource_markers.transform.Find ("FroncetiteQuantity_Text").GetComponent<Text> ();
+		Text s_text = player_resource_markers.transform.Find ("SandetiteQuantity_Text").GetComponent<Text> ();
+		Text x_text = player_resource_markers.transform.Find ("XargonQuantity_Text").GetComponent<Text> ();
 		f_text.text = ((int)Mathf.Round (storage.GetResourceQuantity (ResourceUtils.ResourceType.Froncetite))).ToString();
 		s_text.text = ((int)Mathf.Round (storage.GetResourceQuantity (ResourceUtils.ResourceType.Sandetite))).ToString();
 		x_text.text = ((int)Mathf.Round (storage.GetResourceQuantity (ResourceUtils.ResourceType.Xargon))).ToString();
+
 	}
 
 }
