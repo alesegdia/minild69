@@ -11,6 +11,7 @@ Taplanet is an idle game focused on gathering resources with moderated user inte
 * **[Buildings view]**. Buildings present in current planet. The player can check how much **[RPS]** a specific building type is providing, for each unit and the whole pack of bought buildings of that type.
 * **[Research view]**. The player can **[research]** tech to discover and upgrade **[buildings]** among other upgrades like reducing **[travel]** cost in **[xargon]**.
 * **[Stats view]**. The player can view its stats.
+* **[Diagnostic view]**. Planet diagnosis.
 
 ## Planets and resources
 
@@ -117,3 +118,4 @@ Also, the ship will also be upgradeable in the following properties
 * Increase **[cruising speed]**
 * Increase **[base construction speed]**
 * Increase max **[resource cargo]** supported
+* Enhace what can be seen in **[diagnostic view]**.
