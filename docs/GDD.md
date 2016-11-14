@@ -83,7 +83,7 @@ The player needs a certain amount of **[xargon]** to travel between planets. The
 
 ## Buildings
 
-* **[Gatherers]**, for each resource. Each one is much better than the previous one at gathering resources and increase exponentially in cost and gathering rate. Different gatherers are needed depending on planet main status (**[solid]** or **[liquid]**).
+* **[Gatherers]**, for each resource. Each one is much better than the previous one at gathering resources and increase exponentially in cost and gathering rate.
 
 * **[Container]**. To store resources in a planet. If containers are full, **[gatherers]** won't collect any material until the player has traveled to the planet and fetched the resources.
 * **[Converters]**. For non-**[xargon]** materials, to turn them into **[xargon]**.
