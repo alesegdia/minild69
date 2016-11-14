@@ -62,7 +62,7 @@ There are two storage types:
 * **[Planet storage]**
 * **[Player storage]**
 
-Each planet has its own material storage. When the player is not present in a planet but there are gatherers in it, resources will be stored in the planet storage, and not directly given to the player. These resources are moved to the player storage by visiting the planet.
+Each planet has its own material storage. When the player is not present in a planet but there are gatherers in it, resources will be stored in the **[planet storage]**, and not directly given to the player. These resources are moved to the **[player storage]** by pressing the proper button in the UI. The player can chose how much resources to place in the ship and how much resources to place in the planet (limited by both planet and ship limits).
 
 ## Player actions
 
@@ -83,10 +83,37 @@ The player needs a certain amount of **[xargon]** to travel between planets. The
 
 ## Buildings
 
-* **[Gatherer]**. 3 (by now) for each resource. Each one is much better than the previous one at gathering resources.
+* **[Gatherers]**, for each resource. Each one is much better than the previous one at gathering resources and increase exponentially in cost and gathering rate. Different gatherers are needed depending on planet main status (**[solid]** or **[liquid]**).
+
 * **[Container]**. To store resources in a planet. If containers are full, **[gatherers]** won't collect any material until the player has traveled to the planet and fetched the resources.
 * **[Converters]**. For non-**[xargon]** materials, to turn them into **[xargon]**.
 * **[Power plant]**. Needed in order to make other buildings work. If too much energy exceed, buildings will start to break randomly until power is restored.
 
 
-# Note: some features are optional
+## Ship
+
+The ship has the following properties
+
+* **[Cruising speed]**, reduced by the quantity of resources. All resources can decrease it by the same amount, or different for each resource type. The logic behind all decreasing the same independently from the material type and status can be that containers for gas are heavier.
+* **[Resource cargo]** for each type.
+* **[Base construction speed]**.
+
+One material can decrease the **[cruising speed]** more but need less space, or need less base construction speed for buildings of that type. It can be a hi/lo, mid/mid, lo/hi relationship.
+
+## Upgrades
+
+
+All buildings can be upgraded.
+
+|Building type|Effect|
+|-------------|------|
+|gatherer | increases gather rate |
+|container|increases capacity|
+|converters|increases conversion into xargon rate|
+|power plant|increases power generated and overload support|
+
+Also, the ship will also be upgradeable in the following properties
+
+* Increase **[cruising speed]**
+* Increase **[base construction speed]**
+* Increase max **[resource cargo]** supported
