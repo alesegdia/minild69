@@ -16,31 +16,47 @@ public class UniverseGenerator : MonoBehaviour {
 		planetPrefab = (GameObject) Resources.Load ("Planet");
 		planets = new List<GameObject> ();
 
-		List<Vector3> positions = new List<Vector3> ();
+		float current_pos = 10 + Random.value * 10;
+		float first_pos = current_pos;
 
-		while (positions.Count < numberOfPlanets) {
-			int num_retries = 0;
-			for (int i = 0; i < numberOfPlanets; i++) {
-				Vector2 position = UnityEngine.Random.insideUnitCircle;
-				position.Scale (new Vector2 (scale, scale));
-				if (positionAlreadyTaken (position, positions)) {
-					num_retries++;
-					if (num_retries > numberOfGenerationRetries) {
-						positions.Clear ();
-						break;
-					} else {
-						i--;
-					}
-				} else {
-					positions.Add (new Vector3(position.x, position.y, 0));
-					num_retries = 0;
-				}
-			}
+		LinkedList<PlanetSettings> planet_settings = new LinkedList<PlanetSettings> ();
+		while( planet_settings.Count < numberOfPlanets )
+		{
+			current_pos += 5 + Random.value * 15;
+			Vector3 position = new Vector3 (0, current_pos, 0);
+			PlanetSettings settings = new PlanetSettings ();
+			settings.position = position;
+			settings.size = GenerateRandomSize ();
+			settings.resourceGatheringRate = GenerateResourceProperties ();
+			settings.name = PlanetNameGenerator.GenerateName ();
+			planet_settings.AddLast (settings);
 		}
-		foreach (Vector3 position in positions) {
-			PlanetSettings settings = GeneratePlanetSettingsAtPosition (position);
+
+		PlanetSettings st = GenerateSun ();
+		planets.Add (SpawnPlanet (st));
+
+		foreach( PlanetSettings settings in planet_settings )
+		{
+			// compute temperature depending on sun power and proximity to sun
+			// two params - all blue    |   mid tones   |   all red
+			settings.temperature = (settings.position.y - first_pos) / (current_pos - first_pos);
 			planets.Add(SpawnPlanet (settings));
 		}
+
+
+	}
+
+	PlanetSettings GenerateSun()
+	{
+		PlanetSettings settings = new PlanetSettings ();
+		settings.position = new Vector3 (0, 0, 0);
+		settings.size = 20;
+		settings.resourceGatheringRate [0] = 1;
+		settings.resourceGatheringRate [1] = 1;
+		settings.resourceGatheringRate [2] = 1;
+		settings.temperature = -1;
+		settings.name = PlanetNameGenerator.GenerateName ();
+		return settings;
 	}
 
 	float[] GenerateResourceProperties()
@@ -55,16 +71,6 @@ public class UniverseGenerator : MonoBehaviour {
 	float GenerateRandomSize()
 	{
 		return 2 + UnityEngine.Random.value * UnityEngine.Random.value * 8;
-	}
-
-	PlanetSettings GeneratePlanetSettingsAtPosition( Vector3 position )
-	{
-		PlanetSettings settings = new PlanetSettings ();
-		settings.position = position;
-		settings.size = GenerateRandomSize ();
-		settings.resourceGatheringRate = GenerateResourceProperties ();
-		settings.name = PlanetNameGenerator.GenerateName ();
-		return settings;
 	}
 
 	GameObject SpawnPlanet( PlanetSettings planet_settings )
