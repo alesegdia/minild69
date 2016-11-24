@@ -7,6 +7,8 @@ public class UniverseGenerator : MonoBehaviour {
 	public int numberOfPlanets = 10;
 	public float scale = 10.0f;
 	public int numberOfGenerationRetries = 0;
+
+	public GameObject sun;
 	public List<GameObject> planets;
 
 	GameObject planetPrefab;
@@ -33,17 +35,16 @@ public class UniverseGenerator : MonoBehaviour {
 		}
 
 		PlanetSettings st = GenerateSun ();
-		planets.Add (SpawnPlanet (st));
+		sun = SpawnPlanet (st);
 
 		foreach( PlanetSettings settings in planet_settings )
 		{
 			// compute temperature depending on sun power and proximity to sun
 			// two params - all blue    |   mid tones   |   all red
 			settings.temperature = (settings.position.y - first_pos) / (current_pos - first_pos);
+			settings.distanceToSun = settings.position.y - sun.transform.position.y;
 			planets.Add(SpawnPlanet (settings));
 		}
-
-
 	}
 
 	PlanetSettings GenerateSun()
@@ -56,6 +57,7 @@ public class UniverseGenerator : MonoBehaviour {
 		settings.resourceGatheringRate [2] = 1;
 		settings.temperature = -1;
 		settings.name = PlanetNameGenerator.GenerateName ();
+		settings.distanceToSun = 0;
 		return settings;
 	}
 
@@ -80,6 +82,7 @@ public class UniverseGenerator : MonoBehaviour {
 		planet.BuildGraphics ((int)(Random.value * 1000), planet_settings);
 		go.transform.localScale = new Vector3(planet_settings.size, planet_settings.size, planet_settings.size);
 		planet.settings = planet_settings;
+
 		return go;
 	}
 

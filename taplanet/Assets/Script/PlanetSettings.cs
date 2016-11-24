@@ -12,4 +12,6 @@ public class PlanetSettings {
 	public float size { get; set; }
 	public float[] resourceGatheringRate { get; set; }
 	public string name { get; set; }
+	public float distanceToSun { get; set; }
+
 }

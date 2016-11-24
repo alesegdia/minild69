@@ -10,16 +10,29 @@ public class Planet : MonoBehaviour {
 	MeshRenderer meshRenderer;
 	Texture2D texture;
 	int textureSize = 200;
+	float degs = 0f;
+	Vector3 pos = new Vector3(0, 0, 0);
+	float rotateSpeedFactor = 0f;
 
 	// Use this for initialization
 	void Awake () {
 		planetStorage = new ResourcesStorage ();
 		meshRenderer = GetComponent<MeshRenderer> ();
+		transform.position = pos;
+		rotateSpeedFactor = Random.value;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		degs += Time.deltaTime;
 		this.transform.Rotate (new Vector3 (0, 0.4f, 0));
+		pos.Set (
+			this.settings.distanceToSun * 0.8f * Mathf.Sin (degs * rotateSpeedFactor),
+			this.settings.distanceToSun * Mathf.Cos (degs * rotateSpeedFactor),
+			0
+		);
+		transform.position = pos;
+
 	}
 
 	public void GatherManualResources()
