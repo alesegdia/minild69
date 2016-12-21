@@ -1807,6 +1807,7 @@ MonoBehaviour:
   numberOfPlanets: 10
   scale: 30
   numberOfGenerationRetries: 0
+  sun: {fileID: 0}
   planets: []
 --- !u!1 &1015420118
 GameObject:
